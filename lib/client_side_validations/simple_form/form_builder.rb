@@ -20,7 +20,7 @@ module ClientSideValidations
       end
 
       def input_with_client_side_validations(attribute_name, options = {}, &block)
-        if options.key?(:validate)
+        if options.key?(:validate) && wrapper.nil?
           options[:input_html] ||= {}
           options[:input_html].merge!(:validate => options[:validate])
           options.delete(:validate)
